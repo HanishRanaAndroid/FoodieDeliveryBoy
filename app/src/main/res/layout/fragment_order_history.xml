@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlMainOrderHistory"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragments.OrderHistoryFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/searchEngineLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/tendp"
+        android:background="@drawable/rectangular_with_black_borger"
+        android:orientation="horizontal"
+        android:padding="@dimen/tendp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/search"
+            android:shadowColor="@color/shadow_color"
+            android:textColor="@color/light_black"
+            android:textColorHint="@color/light_black"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/dim14sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivClearText"
+            android:layout_width="@dimen/twentyfivedp"
+            android:layout_height="@dimen/twentyfivedp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/twentydp"
+            android:src="@drawable/clear_text"
+            android:visibility="gone" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivFilter"
+        android:layout_width="@dimen/thirtydp"
+        android:layout_height="@dimen/thirtydp"
+        android:layout_below="@+id/searchEngineLayout"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/tendp"
+        android:src="@drawable/menu" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rlOrderHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivFilter"
+        android:layout_margin="@dimen/fivedp"
+        android:visibility="gone" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNoOrderFound"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ivFilter"
+        android:gravity="center"
+        android:text="@string/no_order_found" />
+
+</RelativeLayout>

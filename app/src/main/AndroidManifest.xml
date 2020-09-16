@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.valle.deliveryboyfoodieapp">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/applogo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/applogo"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup,usesCleartextTraffic">
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAsC3kInPY3U2GUE_6pkSpYUYvCnSnnDtY" />
+       <!-- <activity android:name=".activity.HomeTabActivity" />-->
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.ForgetPasswordActivity" />
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.LoginActivity" />
+<!--        <activity android:name=".activity.OTPVerificationActivity" />-->
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.RegisterActivity" />
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.SliderActivity" />
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.OTPVerificationActivity" />
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.HomeTabActivity" />
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.NewPasswordActivity" />
+        <activity android:name="com.valle.deliveryboyfoodieapp.activity.OTPVerificationChangePasswordActivity" />
+        <!--        <activity android:name=".activity.SliderActivity" />-->
+        <service android:name="com.valle.deliveryboyfoodieapp.services.LocationHandlerService" />
+        <service android:name="com.valle.deliveryboyfoodieapp.services.OrderHandlerService" />
+
+        <service
+            android:name="com.valle.deliveryboyfoodieapp.services.MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service android:name=".services.ForeGroundService" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/chaneel_id" />
+
+    </application>
+
+</manifest>
