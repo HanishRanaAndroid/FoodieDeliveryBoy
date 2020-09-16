@@ -646,7 +646,9 @@ public class HomeScreenFragment extends BaseFragment implements NetworkResponceL
                             e.printStackTrace();
                         }
 
-                        getActivity().fileList();
+                        if (getActivity() !=null) {
+                            getActivity().fileList();
+                        }
                     }, 5000);
                 }
             } catch (Exception e) {
